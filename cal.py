@@ -8,9 +8,6 @@ df = pd.read_csv('exercises.csv')
 df.fillna('', inplace=True)
 df['Rating'] = df['Rating'].apply(lambda x: float(x) if x != '' else 0.0)
 
-# os.environ["OPENAI_API_KEY"] = "sk-proj-kWtbJHeXdWSPrtHw26ULT3BlbkFJK3BxsGziXsSR3zAnQG1q"
-
-
 # Using Secrets API to get API key from environment variables
 os.environ["OPENAI_API_KEY"] = st.secrets['API_KEY']
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
